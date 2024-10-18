@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive GSAP Animation</title>
+<style>
+  #box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+  }
+</style>
+</head>
+<body>
+
+<div id="box"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+  // Initialize GSAP timeline
+  const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
+
+  // Animation for larger screens
+  tl.to("#box", { x: 200, duration: 1 });
+
+  // Responsive animation for smaller screens
+  if (window.matchMedia("(max-width: 600px)").matches) {
+    tl.to("#box", { y: 200, duration: 1 });
+  }
+</script>
+
+</body>
+</html>
